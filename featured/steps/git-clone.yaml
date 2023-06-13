@@ -27,7 +27,7 @@ spec:
       required: true
     - name: importCodeRepo
       type: importCodeRepo
-      reactions: '[{"target": "url", "fulfill": {"state": {"value": "{{$self.value?.url}}"}}}, {"target": "credentialsId", "fulfill": {"state": {"value": "{{$self.value?.secret}}"}}}]'
+      reactions: '[{"target": "url", "fulfill": {"state": {"value": "{{$context?.getRepoUrl?.($self.value)}}"}}}, {"target": "credentialsId", "fulfill": {"state": {"value": "{{$self.value?.secret}}"}}}]'
   template: |
     {
       "arguments": [
